@@ -8,4 +8,5 @@ interface DonationService {
     fun updateDonationStatus(id: Long, status: String): DonationRepresentation
     fun listDonationsByDonor(donorId: Long): List<DonationRepresentation>
     fun listAllDonations(): List<DonationRepresentation>
+    fun deleteDonation(id: Long)
 }

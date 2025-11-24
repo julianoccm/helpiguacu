@@ -55,4 +55,8 @@ class DonationServiceImpl(
         return donationRepository.findAll()
             .map { it.toRepresentation() }
     }
+
+    override fun deleteDonation(id: Long) {
+        donationRepository.deleteById(id)
+    }
 }

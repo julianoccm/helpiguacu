@@ -32,4 +32,8 @@ class DonationFacadeImpl(
     override fun listAllDonations(): List<DonationRepresentation> {
         return donationService.listAllDonations()
     }
+
+    override fun deleteDonation(id: Long) {
+        donationService.deleteDonation(id)
+    }
 }

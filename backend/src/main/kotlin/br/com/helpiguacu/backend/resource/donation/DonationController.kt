@@ -47,4 +47,10 @@ class DonationController (
         val updatedDonation = donationFacade.updateDonationStatus(id, status)
         return ResponseEntity.ok(updatedDonation)
     }
+
+    @DeleteMapping("/{id}")
+    fun deleteDonation(@PathVariable id: Long): ResponseEntity<Void> {
+        donationFacade.deleteDonation(id)
+        return ResponseEntity.noContent().build()
+    }
 }
