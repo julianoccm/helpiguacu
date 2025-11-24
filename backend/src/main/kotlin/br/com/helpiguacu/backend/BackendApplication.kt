@@ -8,6 +8,5 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 class BackendApplication
 
 fun main(args: Array<String>) {
-    print(BCryptPasswordEncoder().encode("senha"))
 	runApplication<BackendApplication>(*args)
 }
