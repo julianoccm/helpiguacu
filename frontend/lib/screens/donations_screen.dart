@@ -96,7 +96,7 @@ class _DonationsScreenState extends State<DonationsScreen> with RouteAware {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        NutricanColors.lightGreen,
+                        NutricanColors.primary,
                         NutricanColors.primary,
                       ],
                       begin: Alignment.centerRight,
@@ -174,7 +174,7 @@ class _DonationsScreenState extends State<DonationsScreen> with RouteAware {
           child: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [NutricanColors.lightGreen, NutricanColors.primary],
+                colors: [NutricanColors.primary, NutricanColors.primary],
                 begin: Alignment.centerRight,
                 end: Alignment.centerLeft,
               ),
