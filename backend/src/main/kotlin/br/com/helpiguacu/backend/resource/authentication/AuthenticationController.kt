@@ -27,4 +27,15 @@ class AuthenticationController(
             return ResponseEntity.badRequest().build()
         }
     }
+
+    @PostMapping("/register")
+    @Operation(summary = "Users registration", description = "Register a new user")
+    fun register(@RequestBody request: UserRepresentation): ResponseEntity<UserRepresentation> {
+        return try {
+            val registrationResponseRepresentation = authenticationFacade.register(request)
+            ResponseEntity.ok(registrationResponseRepresentation)
+        } catch (e: AuthenticationException) {
+            ResponseEntity.badRequest().build()
+        }
+    }
 }

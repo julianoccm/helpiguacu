@@ -5,6 +5,8 @@ import br.com.helpiguacu.backend.domain.model.authentication.AuthenticationServi
 import br.com.helpiguacu.backend.infrastructure.persistence.user.UserRepository
 import br.com.helpiguacu.backend.infrastructure.security.JwtUtils
 import br.com.helpiguacu.backend.resource.authentication.AuthenticationResponseRepresentation
+import br.com.helpiguacu.backend.resource.authentication.UserRepresentation
+import br.com.helpiguacu.backend.resource.authentication.toDomain
 import br.com.helpiguacu.backend.resource.authentication.toRepresentation
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication
@@ -40,5 +42,12 @@ class AuthenticationServiceImpl(
         val principal = User(user.email, user.password, authorities)
 
         return UsernamePasswordAuthenticationToken(principal, null, authorities)
+    }
+
+    override fun register(user: UserRepresentation): UserRepresentation {
+        val userEnity = user.toDomain()
+        userEnity.password = passwordEncoder.encode(userEnity.password)
+        val savedUser = userRepository.save(userEnity)
+        return savedUser.toRepresentation()
     }
 }

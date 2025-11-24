@@ -14,3 +14,16 @@ fun User.toRepresentation(): UserRepresentation {
         addresComplement = this.addresComplement
     )
 }
+
+fun UserRepresentation.toDomain(): User {
+    return User(
+        id = this.id,
+        name = this.name,
+        cpf = this.cpf,
+        email = this.email,
+        password = this.password,
+        cep = this.cep,
+        addresNumber = this.addresNumber,
+        addresComplement = this.addresComplement
+    )
+}
